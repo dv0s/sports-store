@@ -14,8 +14,8 @@ namespace SportsStore.Models
             context = ctx;
         }
         public IQueryable<Order> Orders => context.Orders
-        .Include(o => o.Lines)
-       .ThenInclude(l => l.Product);
+            .Include(o => o.Lines)
+            .ThenInclude(l => l.Product);
         public void SaveOrder(Order order)
         {
             context.AttachRange(order.Lines.Select(l => l.Product));
